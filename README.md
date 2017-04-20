@@ -15,9 +15,6 @@ To do it, follow these steps in **this order**:
 ```
 npm install
 ```
-
-Among other things, this will force the Use All Five coding style guides for JavaScript and SCSS.
-
 To ensure the latter, [install](https://packagecontrol.io/installation) the following packages for Sublime Text (or similiar IDE):
 
 - EditorConfig
