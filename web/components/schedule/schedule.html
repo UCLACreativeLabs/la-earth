@@ -1,0 +1,20 @@
+<div class="schedule">
+	<div class="schedule__table">
+        <div
+            class="schedule__timeslots"
+            ng-repeat="timeslot in timeslots">
+            <div>
+                <a ui-sref="map">{{timeslot.time}}</a>
+            </div>
+            <div>
+                {{timeslot.title}}
+            </div>
+            <div>
+                {{timeslot.details}}
+            </div>
+            <div>
+                {{timeslot.url}}
+            </div>
+        </div>
+    </div>
+</div>
