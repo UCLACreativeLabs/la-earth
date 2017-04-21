@@ -24,6 +24,7 @@ config:
                     - web/bower_components/jquery-unorphanize/unorphanize.jquery.min.js
                     - web/bower_components/modernizr/modernizr.js
                     - web/bower_components/threejs/threejs.js
+                    - web/bower_components/ngmap/ngmap.js
                     # end bower_components
                 dest: web/_build/vendor.js
             app:

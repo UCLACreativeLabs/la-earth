@@ -1,3 +1,10 @@
 <div class="map">
 	map
+    <ng-map center="[33.86, -118.40]">
+        <marker
+            ng-repeat="p in farmerData"
+            position="[{{p.X}}, {{p.Y}]"
+            data="{{p.Name}}"
+            title="pos: {{p.pos}}"></marker>
+    </ng-map>
 </div>
