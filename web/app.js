@@ -4,6 +4,7 @@ angular.module('ua5Templates', []);
 // start module declaration
 angular.module('ua5App.home', []);
 angular.module('ua5App.map', []);
+angular.module('ua5App.about', []);
 // end module declaration
 // Create parent module for application
 angular.module('ua5App', [
@@ -19,6 +20,7 @@ angular.module('ua5App', [
     'angularModalService',
     'ngMeta',
     // start add states as app dependency
+    'ua5App.about',
     'ua5App.map',
     'ua5App.home'
     // end add states as app dependency
@@ -35,10 +37,10 @@ angular.module('ua5App', [
         // Prevents bounce rate of 0.01
         $analyticsProvider.firstPageview(false);
         ngMetaProvider.useTitleSuffix(true);
-        ngMetaProvider.setDefaultTitleSuffix(' | Site Name');
-        ngMetaProvider.setDefaultTitle('Page');
+        ngMetaProvider.setDefaultTitleSuffix(' | Earth Day LA');
+        ngMetaProvider.setDefaultTitle('Tips');
         ngMetaProvider.setDefaultTag('url', 'URL');
-        ngMetaProvider.setDefaultTag('description', 'Site description');
+        ngMetaProvider.setDefaultTag('description', 'A celebration of Earth Day in LA.');
         ngMetaProvider.setDefaultTag('image', 'URL');
     }])
     .run(['ngMeta', '$animate', function(ngMeta, $animate) {

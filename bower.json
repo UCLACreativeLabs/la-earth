@@ -26,6 +26,10 @@
     "scrollreveal": "3.3.2",
     "slick-carousel": "1.6.0",
     "underscore": "1.8.3",
-    "ngmap": "^1.18.4"
+    "ngmap": "^1.18.4",
+    "angular-route": "^1.6.4"
+  },
+  "resolutions": {
+    "angular": "^1.0.8"
   }
 }

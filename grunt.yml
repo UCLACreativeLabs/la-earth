@@ -25,6 +25,7 @@ config:
                     - web/bower_components/modernizr/modernizr.js
                     - web/bower_components/threejs/threejs.js
                     - web/bower_components/ngmap/ngmap.js
+                    - web/bower_components/angular-route/angular-route.js
                     # end bower_components
                 dest: web/_build/vendor.js
             app:

@@ -1,9 +1,18 @@
 <div class="schedule">
 	<div class="schedule__table">
         <div
+            ui-sref="map({{timeslot}})"
             class="schedule__timeslots"
             ng-repeat="timeslot in timeslots">
-            <div>
+            <img src="assets/img/icons/{{timeslot.icon}}.svg">
+            <p>
+                {{timeslot.title}}
+            </p>
+            <p class="schedule__info">
+                <img src="assets/img/icons/warning.svg">
+                <img src="assets/img/icons/placeholder.svg" ng-if="timeslot.map">
+            </p>
+            <!-- <div>
                 <a ui-sref="map">{{timeslot.time}}</a>
             </div>
             <div>
@@ -14,7 +23,7 @@
             </div>
             <div>
                 {{timeslot.url}}
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

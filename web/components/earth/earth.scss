@@ -30,19 +30,31 @@
 }
 
 #cloud1, #cloud3 {
-    animation: cloudMove 60s infinite linear alternate reverse;
+    animation: cloudMove 30s infinite linear alternate reverse;
 }
 
 #cloud2, #cloud4 {
-    animation: cloudMove 50s infinite linear alternate;
+    animation: cloudMove 40s infinite linear alternate;
 }
 
 #cloud5 {
-    animation: cloudMove 70s infinite linear alternate reverse;
+    animation: cloudMove 50s infinite linear alternate reverse;
 }
 
 #sun {
     cx: 50%;
     cy: 70%;
-    animation: sunMove 800s infinite linear;
+    animation: sunMove 500s infinite linear;
+}
+
+.footer {
+    position: fixed;
+    color: #fff;
+    bottom: 20px;
+    left: 20px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }

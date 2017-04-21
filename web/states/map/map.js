@@ -3,12 +3,28 @@ angular.module('ua5App.map', ['ngMap'])
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
         $stateProvider.state('map', {
             url: '/map',
+            params: {
+                time: null,
+                title: {
+                    value: "Support Local Produce"
+                },
+                details: {
+                    value: "Need to go grocery shopping? Check out these local farmers markets for fresh, locally sourced produce to limit your carbon footprint"
+                },
+                map: {
+                    value: "farmerData"
+                },
+                icon: {
+                    value: "sprout"
+                },
+                url: null
+            },
             templateUrl: 'states/map/map.html',
             controller: 'mapCtrl',
             controllerAs: 'ctrl'
         });
     }])
-    .controller('mapCtrl', ['$timeout', 'NgMap', '$scope', function($timeout, NgMap, $scope) {
+    .controller('mapCtrl', ['$timeout', 'NgMap', '$scope', '$stateParams', function($timeout, NgMap, $scope, $stateParams) {
         $scope.farmerData = [
  {
    "X": -118.5537908,
@@ -2014,12 +2030,332 @@ angular.module('ua5App.map', ['ngMap'])
  }
         ];
 
+        $scope.mapStyle = [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#ebe3cd"
+      }
+    ]
+  },
+  {
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#523735"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#f5f1e6"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#c9b2a6"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#dcd2be"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#ae9e90"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.neighborhood",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.natural",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#93817c"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.business",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#a5b076"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#447530"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f5f1e6"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#fdfcf8"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f8c967"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#e9bc62"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e98d58"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#db8555"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#806b63"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#8f7d77"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#ebe3cd"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#b9d3c2"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#92998d"
+      }
+    ]
+  }
+];
+
+        $scope.showMap = $stateParams.map;
+        $scope.title = $stateParams.title;
+        $scope.info = $stateParams.details;
+        $scope.url = $stateParams.url;
+        $scope.icon = $stateParams.icon;
+
+        // $(".earth_elem").css("bottom", "-200px");
+
         NgMap.getMap().then(function(map) {
-            console.log(map.getCenter());
-            console.log('markers', map.markers);
-            console.log('shapes', map.shapes);
-            map.data.loadGeoJson('http://geohub.lacity.org/datasets/a050296610ee4cc7bea41e66196d9bb0_40.geojson?where=&geometry={"xmin":-13951254.333030073,"ymin":3820005.993082375,"xmax":-12385823.993750079,"ymax":4186903.7288511232,"spatialReference":{"wkid":102100,"latestWkid":3857}}');
-            console.log(map.data);
+            map.data.forEach(function (feature) {
+                map.data.remove(feature);
+            });
+            if($scope.icon == "tree") {
+                map.data.loadGeoJson('http://geohub.lacity.org/datasets/678499fcf0b84e06ac80a37ae7cde7e3_9.geojson?where=&geometry={"xmin":-13951254.333030073,"ymin":3820005.993082375,"xmax":-11603108.824110081,"ymax":4186903.7288511232,"spatialReference":{"wkid":102100,"latestWkid":3857}}');
+                map.data.setStyle(function(feature) {
+                  return {
+                    icon: {
+                        url:'assets/img/icons/childhood.png'
+                    },
+                    visible: true,
+                    clickable: true,
+                  };
+                });
+            } else {
+                map.data.loadGeoJson('http://geohub.lacity.org/datasets/a050296610ee4cc7bea41e66196d9bb0_40.geojson?where=&geometry={"xmin":-13951254.333030073,"ymin":3820005.993082375,"xmax":-12385823.993750079,"ymax":4186903.7288511232,"spatialReference":{"wkid":102100,"latestWkid":3857}}');
+                map.data.setStyle(function(feature) {
+                  return {
+                    icon: {
+                        url:'assets/img/icons/carrot.png'
+                    },
+                    visible: true,
+                    clickable: true,
+                  };
+                });
+            }
+            map.setZoom(12);
+            map.data.addListener('click', function(event) {
+                $scope.infoName = event.feature.getProperty('Name');
+                $scope.infoAddy1 = event.feature.getProperty('addrln1');
+                $scope.infoAddy2 = event.feature.getProperty('addrln2');
+                map.showInfoWindow('myInfoWindow', event.latLng);
+            });
+            console.log(map);
         });
     }])
 ;
