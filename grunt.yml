@@ -20,12 +20,11 @@ config:
                     - web/bower_components/underscore/underscore-min.js
                     - web/bower_components/slick-carousel/slick/slick.min.js
                     - web/bower_components/ngMeta/dist/ngMeta.min.js
-                    - web/bower_components/angular-modal-service/dst/angular-modal-service.min.js                    
+                    - web/bower_components/angular-modal-service/dst/angular-modal-service.min.js
                     - web/bower_components/jquery-unorphanize/unorphanize.jquery.min.js
                     - web/bower_components/modernizr/modernizr.js
                     - web/bower_components/threejs/threejs.js
                     - web/bower_components/ngmap/ngmap.js
-                    - web/bower_components/angular-route/angular-route.js
                     # end bower_components
                 dest: web/_build/vendor.js
             app:

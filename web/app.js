@@ -37,10 +37,10 @@ angular.module('ua5App', [
         // Prevents bounce rate of 0.01
         $analyticsProvider.firstPageview(false);
         ngMetaProvider.useTitleSuffix(true);
-        ngMetaProvider.setDefaultTitleSuffix(' | Earth Day LA');
-        ngMetaProvider.setDefaultTitle('Tips');
+        ngMetaProvider.setDefaultTitleSuffix(' | Site Name');
+        ngMetaProvider.setDefaultTitle('Page');
         ngMetaProvider.setDefaultTag('url', 'URL');
-        ngMetaProvider.setDefaultTag('description', 'A celebration of Earth Day in LA.');
+        ngMetaProvider.setDefaultTag('description', 'Site description');
         ngMetaProvider.setDefaultTag('image', 'URL');
     }])
     .run(['ngMeta', '$animate', function(ngMeta, $animate) {
